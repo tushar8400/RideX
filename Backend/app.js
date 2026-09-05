@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const app = express();
 const connectToDB = require("./db/db.js");
 const userRoute = require("./routes/userRoute.js");
+const captainRoute = require("./routes/captainRoute.js");
 
 
 connectToDB();
@@ -20,7 +21,7 @@ app.get("/", (req, res) => {
 
 
 app.use("/users", userRoute);
-
+app.use("/captain", captainRoute);
 
 // app.listen("/" , () => {
 //     console.log(`app is listening on Port ${port}`);
