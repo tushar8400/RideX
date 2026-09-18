@@ -1,32 +1,52 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState , useContext } from 'react';
+import { Link , useNavigate } from 'react-router-dom';
+import axios from "axios";
+import {UserDataContext} from '../context/UserContext';
 
 export default function UserSignup() {
 
-  const [firstName, setFristName] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userData, setUserData] = useState("");
 
+  const navigate = useNavigate();
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    setUserData({
-      fullName: {
-        firstName: firstName,
-        lastName: lastName,
-      },
-      email: email,
-      password: password
-    });
+  const { user , setUser } = React.useContext(UserDataContext);
 
-    console.log(userData);
-    setFristName('');
-    setLastName('');
-    setEmail('');
-    setPassword('');
+
+  const submitHandler = async (e) => {
+  e.preventDefault();
+  const newUser = {
+    fullName: {
+      firstName: firstName,
+      lastName: lastName,
+    },
+    email: email,
+    password: password
+  };
+  
+  try {
+    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/register`, newUser);
+    
+    if (response.status === 201) {
+      const data = response.data;
+      setUser(data.user);
+      localStorage.setItem('token', data.token);
+      navigate('/Home');
+    }
+  } catch (error) {
+    // Look at your browser console to see exactly what express-validator rejected!
+    console.error("Validation Error Details:", error.response?.data);
   }
+
+  setFirstName('');
+  setLastName('');
+  setEmail('');
+  setPassword('');
+}
+
 
 
 
@@ -47,7 +67,7 @@ export default function UserSignup() {
               type='firstName'
               placeholder="First-Name"
               onChange={(e) => {
-                setFristName(e.target.value)
+                setFirstName(e.target.value)
               }}
             />
 

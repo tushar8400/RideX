@@ -13,8 +13,8 @@ const registerUser = async (req, res) => {
 
 
     const { fullName, email, password } = req.body;
-   
-    const isUserAlreadyExist = await user.findOne({email});
+    
+    const isUserAlreadyExist = await userModel.findOne({email});
 
     if(isUserAlreadyExist) {
         return res.status(400).json( { message : "User Already Exist" });
@@ -77,11 +77,11 @@ const logoutUser = async(req, res) => {
 
      const token = req.cookies.token  ||  req.headers.authorization.split(' ')[ 1 ];
 
-     await blacklistToken.create({ token });
+     await backlistToken.create({ token });
 
      res.status(200).json({message : 'Logged out '});
 }
 
 // CHANGE THIS AT THE BOTTOM OF YOUR CONTROLLER FILE:
-module.exports = { registerUser, Login , getUserProfile };
+module.exports = { registerUser, Login , logoutUser , getUserProfile };
 
