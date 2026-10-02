@@ -3,6 +3,7 @@ import { useNavigate , useLocation } from 'react-router-dom'
 import FinishRide from '../components/FinishRide';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import LiveTracking from '../components/LiveTracking';
 
 export default function CaptainRiding() {
 
@@ -16,12 +17,7 @@ export default function CaptainRiding() {
                 {/* Map */}
                 <div className='relative w-full h-screen  overflow-hidden'>
 
-                    <img
-                        className='w-full h-full object-cover'
-                        src="https://cdn.dribbble.com/userupload/22910073/file/original-f308c35778d329518ef2b88f866111ec.gif"
-                        alt='Map'
-                    />
-
+                    <LiveTracking />
                     {/* Dark Map Overlay */}
                     <div className='absolute inset-0 bg-black/10'></div>
 

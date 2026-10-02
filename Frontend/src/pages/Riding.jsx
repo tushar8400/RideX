@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Link , useLocation, useNavigate} from 'react-router-dom'
 import { SocketContext } from '../context/SocketContext';
+import LiveTracking from '../components/LiveTracking';
 
 export default function Riding() {
 
@@ -22,12 +23,7 @@ export default function Riding() {
         {/* ================= MAP ================= */}
         <div className="h-[40vh] relative overflow-hidden">
 
-          <img
-            src="https://cdn.dribbble.com/userupload/22910073/file/original-f308c35778d329518ef2b88f866111ec.gif"
-            alt="Ride map"
-            className="w-full h-full object-cover"
-          />
-
+          <LiveTracking />
           {/* Back Button */}
           <button className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center">
             <i className="ri-arrow-left-line text-xl text-gray-800"></i>

@@ -13,6 +13,7 @@ import ConfirmRide from '../components/ConfirmRide'
 import WaitingForDriver from '../components/WaitingForDriver'
 import LookingForDriver from '../components/LookingForDriver'
 import { useContext } from 'react';
+import LiveTracking from '../components/LiveTracking';
 
 export default function Home() {
 
@@ -227,11 +228,7 @@ export default function Home() {
 
       <div className='bg-yellow-400 h-full w-full relative'>
 
-        <img
-          className='h-screen w-full object-cover'
-          src='https://cdn.dribbble.com/userupload/22910073/file/original-f308c35778d329518ef2b88f866111ec.gif'
-          alt='Map'
-        />
+        <LiveTracking />
 
 
         {/* Logo */}

@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from 'gsap';
 import { SocketContext } from '../context/SocketContext';
 import { CaptainDataContext } from '../context/CaptainContext';
+import LiveTracking from '../components/LiveTracking';
 
 export default function CaptainHome() {
 
@@ -88,8 +89,8 @@ export default function CaptainHome() {
           Ride<span className='text-yellow-400'>X</span>
         </h2>
       </div>
-      <div className='w-full '>
-        <img className='w-full h-100' src="https://cdn.dribbble.com/userupload/22910073/file/original-f308c35778d329518ef2b88f866111ec.gif" alt='' />
+      <div className='w-full h-110 '>
+         <LiveTracking />
       </div>
       <div className=''>
         {/* fare={fare} */}
