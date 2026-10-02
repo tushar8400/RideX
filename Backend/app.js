@@ -7,6 +7,8 @@ const app = express();
 const connectToDB = require("./db/db.js");
 const userRoute = require("./routes/userRoute.js");
 const captainRoute = require("./routes/captainRoute.js");
+const mapsRoute = require('./routes/mapRoute.js');
+const rideRoute = require('./routes/rideRoute.js');
 
 
 connectToDB();
@@ -22,6 +24,8 @@ app.get("/", (req, res) => {
 
 app.use("/users", userRoute);
 app.use("/captain", captainRoute);
+app.use("/maps", mapsRoute);
+app.use("/rides", rideRoute);
 
 // app.listen("/" , () => {
 //     console.log(`app is listening on Port ${port}`);

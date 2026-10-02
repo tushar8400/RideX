@@ -40,7 +40,14 @@ export default function UserLogin() {
      
   return (
     <div>
-      <div className='px-3 flex flex-col'>
+            {/* RideX Logo */}
+      <div className='absolute top-5 left-35 -translate-x-1/2  bg-white px-5 py-2 rounded-full shadow-lg '>
+        <h2 className='text-xl font-extrabold'>
+          Ride<span className='text-yellow-400'>X</span>
+        </h2>
+      </div>
+
+      <div className='px-3 mt-4 flex flex-col'>
         {/* <h1 className='font-semibold'>TK RideX</h1> */}
         <h1 className='font-medium mt-18  text-2xl' > Welcome  Back!</h1>
         <p className='font-medium italic '> Login To Continue </p>

@@ -1,5 +1,5 @@
-import React, { useState , useContext } from 'react';
-import { Link , useNavigate } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { CaptainDataContext } from '../context/CaptainContext';
 
@@ -9,23 +9,23 @@ export default function CaptainLogin() {
   const [password, setPassword] = useState('');
   const [captainData, setCaptainData] = useState({});
 
-  const {captain , setCaptain } = React.useContext(CaptainDataContext);
+  const { captain, setCaptain } = React.useContext(CaptainDataContext);
   const navigate = useNavigate();
 
-  const submitHandler = async(e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     const captain = {
       email: email,
       password: password,
     };
 
-    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/captain/login`, captain );
-    if(response.status === 200) {
-        const data = response.data;
+    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/captain/login`, captain);
+    if (response.status === 200) {
+      const data = response.data;
 
-        setCaptain(data.captain);
-        localStorage.setItem('token', data.token);
-        navigate('/captain-home');
+      setCaptain(data.captain);
+      localStorage.setItem('token', data.token);
+      navigate('/captain-home');
     }
 
     setEmail('');
@@ -35,7 +35,14 @@ export default function CaptainLogin() {
 
   return (
     <div>
-      <div className='px-3 flex flex-col'>
+      {/* RideX Logo */}
+      <div className='absolute top-5 left-35 -translate-x-1/2 bg-white px-5 py-2 rounded-full shadow-lg'>
+        <h2 className='text-xl font-extrabold'>
+          Ride<span className='text-yellow-400'>X</span>
+        </h2>
+      </div>
+
+      <div className='px-3  mt-4 flex flex-col'>
         {/* <h1 className='font-semibold'>TK RideX</h1> */}
         <h1 className='font-medium mt-18  text-2xl' > Welcome  Back!</h1>
         <p className='font-medium italic '> Login  as a driver </p>

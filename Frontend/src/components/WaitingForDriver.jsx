@@ -49,7 +49,7 @@ export default function WaitingForDriver(props) {
 
             <div>
               <h2 className="text-lg font-bold text-gray-900">
-                Rahul Kumar
+                 {props.ride?.captain.fullName.lastName}{props.ride?.captain.fullName.lastName}
               </h2>
 
               <div className="flex items-center gap-1 mt-0.5">
@@ -99,10 +99,12 @@ export default function WaitingForDriver(props) {
 
             <div className="mt-1 bg-white border border-gray-300 rounded-md px-3 py-1">
               <span className="text-sm font-bold tracking-wide text-gray-900">
-                UP32 AB 1234
+                {props.ride?.captain.vehicle.plate}
               </span>
             </div>
           </div>
+           
+           <span className='text-lg font-semibold'>{props.ride?.otp}</span>
 
         </div>
 
@@ -127,12 +129,12 @@ export default function WaitingForDriver(props) {
               PICKUP
             </p>
 
-            <h3 className="text-sm font-semibold text-gray-900">
+            {/* <h3 className="text-sm font-semibold text-gray-900">
               631/96
-            </h3>
+            </h3> */}
 
             <p className="text-xs text-gray-500">
-              Harihar Nagar, Lucknow
+              {props.ride?.pickup}
             </p>
           </div>
 
@@ -150,12 +152,12 @@ export default function WaitingForDriver(props) {
               DROP
             </p>
 
-            <h3 className="text-sm font-semibold text-gray-900">
+            {/* <h3 className="text-sm font-semibold text-gray-900">
               Phoenix Palassio
-            </h3>
+            </h3> */}
 
             <p className="text-xs text-gray-500">
-              Gomti Nagar, Lucknow
+               {props.ride?.destination}
             </p>
           </div>
 
@@ -179,7 +181,7 @@ export default function WaitingForDriver(props) {
 
             <div className="flex items-center gap-2">
               <span className="text-lg font-bold text-gray-900">
-                ₹200
+                ₹ {props.ride?.fare}
               </span>
 
               <span className="text-xs bg-gray-100 px-2 py-1 rounded-md text-gray-600 font-medium">

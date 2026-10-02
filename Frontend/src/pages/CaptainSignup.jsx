@@ -61,6 +61,13 @@ export default function CaptainSignup() {
 
   return (
     <div>
+          {/* RideX Logo */}
+      <div className='absolute top-5 left-35 -translate-x-1/2 bg-white px-5 py-2 rounded-full shadow-lg'>
+        <h2 className='text-xl font-extrabold'>
+          Ride<span className='text-yellow-400'>X</span>
+        </h2>
+      </div>
+
       <div className='px-3 flex flex-col'>
         {/* <h1 className='font-semibold'>TK RideX</h1> */}
         <h1 className='font-medium text-2xl mt-20 '> Driver Register!</h1>

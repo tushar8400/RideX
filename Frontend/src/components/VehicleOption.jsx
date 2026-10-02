@@ -39,6 +39,7 @@ export default function VehicleOption(props) {
                 <div
                     onClick={() => {
                         props.setConfirmRidePanel(true);
+                        props.selectVehicle('car');
                     
                     }}
                     className='border border-gray-200 rounded-2xl p-2 flex items-center gap-3 cursor-pointer hover:border-green-400 hover:bg-green-50 active:scale-[0.98] transition-all'
@@ -70,13 +71,14 @@ export default function VehicleOption(props) {
                             Affordable, compact ride
                         </p>
                     </div>
+                     <h2 className='text-lg font-semibold'>&#8377; {props.fare.car}</h2>
                 </div>
 
                 {/* Moto */}
                 <div
                     onClick={() => {
                         props.setConfirmRidePanel(true);
-                        
+                        props.selectVehicle('moto');
                     }}
                     className='border border-gray-200 rounded-2xl p-2 flex items-center gap-3 cursor-pointer hover:border-green-400 hover:bg-green-50 active:scale-[0.98] transition-all mt-3'
                 >
@@ -107,13 +109,14 @@ export default function VehicleOption(props) {
                             Affordable, quick ride
                         </p>
                     </div>
+                     <h2 className='text-lg font-semibold'>&#8377; {props.fare.moto}</h2>
                 </div>
 
                 {/* Auto */}
                 <div
                     onClick={() => {
                         props.setConfirmRidePanel(true);
-                    
+                        props.selectVehicle('auto')
                     }}
                     className='border border-gray-200 rounded-2xl p-2 flex items-center gap-3 cursor-pointer hover:border-green-400 hover:bg-green-50 active:scale-[0.98] transition-all mt-3'
                 >
@@ -144,6 +147,7 @@ export default function VehicleOption(props) {
                             Affordable, spacious ride
                         </p>
                     </div>
+                    <h2 className='text-lg font-semibold'>&#8377; {props.fare.auto}</h2>
                 </div>
 
             </div>

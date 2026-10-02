@@ -37,11 +37,11 @@ export default function ConfirmRide(props) {
                     <p className='text-xs font-semibold text-gray-400'>
                         PICKUP
                     </p>
-                    <h3 className='text-base font-semibold text-gray-900'>
-                        631/96
-                    </h3>
+                    {/* <h3 className='text-base font-semibold text-gray-900'>
+                          {props.pickup}
+                    </h3> */}
                     <p className='text-sm text-gray-500'>
-                        Harihar Nagar, Lko
+                        {props.pickup}
                     </p>
                 </div>
             </div>
@@ -58,11 +58,11 @@ export default function ConfirmRide(props) {
                     <p className='text-xs font-semibold text-gray-400'>
                         DROP
                     </p>
-                    <h3 className='text-base font-semibold text-gray-900'>
+                    {/* <h3 className='text-base font-semibold text-gray-900'>
                         631/96
-                    </h3>
+                    </h3> */}
                     <p className='text-sm text-gray-500'>
-                        Harihar Nagar, Lko
+                        {props.destination}
                     </p>
                 </div>
             </div>
@@ -80,7 +80,7 @@ export default function ConfirmRide(props) {
                         PAYMENT
                     </p>
                     <h3 className='text-lg font-bold text-gray-900'>
-                        ₹200
+                      &#8377;  {props.fare[props.vehicleType]}
                     </h3>
                     <p className='text-sm text-gray-500'>
                         Cash
@@ -91,6 +91,7 @@ export default function ConfirmRide(props) {
             {/* Confirm */}
             <button onClick={() => {
                 props.setVehicleFound(true);
+                props.createRide();
             }}
              className='w-full mt-6 h-10 rounded-xl cursor-pointer text-lg font-bold text-white bg-green-500 hover:bg-green-600 transition duration-200'>
                 Confirm Ride
